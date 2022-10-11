@@ -1,0 +1,35 @@
+nav {
+  display: flex;
+  height: 120px;
+  width: 100%;
+  color: #FFFFFF;
+  background-color: #4056A1;
+  font-size: 35px;
+  font-family: "Bungee";
+  padding-right: 1.5em;
+  padding-left: 1.5em;
+  z-index: 2;
+  top: 0;
+  justify-content: space-between;
+  align-items: center;
+  position: fixed;
+}
+
+#right-text {
+  padding-top: 0em;
+  padding-bottom: 0em;
+  text-align: right;
+  font-family: "Source Sans Pro";
+  margin-block-start: 0em;
+  margin-block-end: 0em;
+  font-size: 20px;
+}
+
+#right-text span {
+  font-weight: bold;
+}
+
+.arrow {
+  display: flex;
+  justify-content: center;
+}

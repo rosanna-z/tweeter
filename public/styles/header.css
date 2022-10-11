@@ -1,0 +1,15 @@
+header {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  height: 400px;
+  width: 100%;
+  background-color: #dfebf5;
+  margin-top: 120px;
+  background-image: url("https://www.transparenttextures.com/patterns/axiom-pattern.png");
+
+}
+
+#name h2 {
+  margin: 0;
+}
