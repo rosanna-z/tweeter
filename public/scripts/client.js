@@ -58,14 +58,16 @@ $(document).ready(() => {
 
     // get + serialize the data from form
     const newTweet = $form.serialize();
-
+    console.log('newTweet', newTweet)
     // send info to server with POST request
     $.ajax({
       method: 'POST',
       url: '/tweets',
       data: newTweet
     })
-
+    .then(() => {
+      $tweetsContainer.prepend(loadTweets());
+    })
   });
 
   loadTweets();
