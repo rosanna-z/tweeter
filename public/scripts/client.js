@@ -8,7 +8,7 @@ $(document).ready(() => {
       method: 'GET'
     })
       .then((tweets) => {
-        renderTweets(tweets)
+        renderTweets(tweets);
       });
   };
 
@@ -45,14 +45,27 @@ $(document).ready(() => {
   $form.on('submit', (event) => {
     // prevents browser from default action
     event.preventDefault();
+
+    // grabbing the text value
+    const $tweetText = ($('#tweet-text').val()).trim()
+    // validate if text is empty/null or longer than 140 letters
+    if (!$tweetText) {
+      return alert('Tweet cannot be empty!');
+    }
+    if ($tweetText.length > 140) {
+      return alert('Tweet is too long!');
+    }
+
     // get + serialize the data from form
     const newTweet = $form.serialize();
+
     // send info to server with POST request
     $.ajax({
       method: 'POST',
       url: '/tweets',
       data: newTweet
-    });
+    })
+
   });
 
   loadTweets();
