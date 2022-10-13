@@ -21,13 +21,14 @@ const data = [
     "user": {
       "name": "Descartes",
       "avatars": "https://i.imgur.com/nlhLi3I.png",
-      "handle": "@rd" },
+      "handle": "@rd"
+    },
     "content": {
       "text": "Je pense , donc je suis"
     },
     "created_at": 1461113959088
   }
-]
+];
 
 $(document).ready(() => {
 
@@ -39,14 +40,13 @@ $(document).ready(() => {
   const renderTweets = function(tweets) {
     for (const tweet of tweets) {
       const tweetElement = createTweetElement(tweet);
-      console.log('this is tweet', tweetElement)
-      $tweetsContainer.append(tweetElement);
+      $tweetsContainer.prepend(tweetElement);
     }
 
   };
 
   const createTweetElement = function(tweetObj) {
-  let $tweet = $(`
+    let $tweet = $(`
   <article class="tweet">
   <div class=tweet-profile><img src="${tweetObj.user.avatars}">${tweetObj.user.name}</img><span>${tweetObj.user.handle}</span></div>
   <div class="tweet-text">${tweetObj.content.text}</div>
@@ -60,9 +60,27 @@ $(document).ready(() => {
   </footer>
 </article>
   `);
-  return $tweet;
+    return $tweet;
   };
 
   renderTweets(data);
+
+  // listen for the form to submit
+  const $form = $('#form');
+
+  $form.on('submit', (event) => {
+    alert('hello')
+    event.preventDefault();
+
+    const newTweet = $form.serialize();
+
+    $.ajax({
+      method: 'POST',
+      url: '/tweets',
+      data: newTweet
+    })
+    console.log(newTweet)
+  });
+
 
 });
