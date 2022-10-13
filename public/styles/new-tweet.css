@@ -1,3 +1,7 @@
+.new-tweet {
+  padding-top: 10px;
+}
+
 form {
   display: flex;
   flex-direction: column;
@@ -36,4 +40,15 @@ button {
 
 .counter.invalid {
   color: red;
+}
+
+.error {
+  display: flex;
+  border-style: solid;
+  padding: 5px;
+  color: rgb(109, 41, 41);
+  background-color: rgb(243, 180, 180);
+  margin: 20px;
+  font-size: 15px;
+  border-radius: 5px;
 }

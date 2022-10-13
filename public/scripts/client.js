@@ -23,10 +23,16 @@ $(document).ready(() => {
   };
 
   const createTweetElement = function(tweetObj) {
+    const escape = function (str) {
+      let div = document.createElement("div");
+      div.appendChild(document.createTextNode(str));
+      return div.innerHTML;
+    };
+
     let $tweet = $(`
   <article class="tweet">
   <div class=tweet-profile><img src="${tweetObj.user.avatars}">${tweetObj.user.name}</img><span>${tweetObj.user.handle}</span></div>
-  <div class="tweet-text">${tweetObj.content.text}</div>
+  <div class="tweet-text">${escape(tweetObj.content.text)}</div>
   <footer>
     ${timeago.format(tweetObj.created_at)}
     <span>
@@ -45,20 +51,27 @@ $(document).ready(() => {
   $form.on('submit', (event) => {
     // prevents browser from default action
     event.preventDefault();
+    $('.error').hide();
 
     // grabbing the text value
     const $tweetText = ($('#tweet-text').val()).trim()
+
     // validate if text is empty/null or longer than 140 letters
     if (!$tweetText) {
-      return alert('Tweet cannot be empty!');
+      $('.error-message').text('Error Message: You must input text in your tweet.')
+      $('.error').slideDown()
+      return 
     }
     if ($tweetText.length > 140) {
-      return alert('Tweet is too long!');
+      $('.error-message').text('Oops! Your tweet is too long!')
+      $('.error').slideDown()
+      return 
     }
+    
 
     // get + serialize the data from form
     const newTweet = $form.serialize();
-    console.log('newTweet', newTweet)
+
     // send info to server with POST request
     $.ajax({
       method: 'POST',
@@ -66,6 +79,9 @@ $(document).ready(() => {
       data: newTweet
     })
     .then(() => {
+      $('#tweet-text').val('');
+      $('.error').slideUp();
+      $('.counter').val('140');
       $tweetsContainer.prepend(loadTweets());
     })
   });

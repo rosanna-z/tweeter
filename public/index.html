@@ -75,6 +75,10 @@
   <!-- Page-specific (main) content here -->
   <main class="container">
     <section class="new-tweet">
+      <div class="error" style="display: none">
+        <i class="fa-solid fa-triangle-exclamation"></i>
+        <span class="error-message"></span>
+      </div>
       <label for="tweet-text"><span>What are you humming about?</span></label>
       <form id="form">
         <div><textarea name="text" id="tweet-text"></textarea>
@@ -84,6 +88,7 @@
           </div>
         </div>
       </form>
+
     </section>
 
     <section class="all-tweets">

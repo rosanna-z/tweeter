@@ -26,16 +26,12 @@ article.tweet .tweet-profile {
   text-align: right;
 }
 
-article.tweet img {
-  width: 30px;
-  height: auto;
-}
-
 .tweet-text {
   display: flex;
   padding: 30px 10px 30px 10px;
   border-bottom: 2px solid black;
   border-width: 3px;
+  word-break: break-all;
 }
 
 article.tweet footer {
