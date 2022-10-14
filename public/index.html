@@ -17,8 +17,7 @@
   <!-- External Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link
-    href="https://fonts.googleapis.com/css2?family=Bungee&family=Source+Sans+Pro:ital,wght@0,300;0,600;1,300;1,600&display=swap"
+  <link href="https://fonts.googleapis.com/css2?family=Bungee&family=Source+Sans+Pro:ital,wght@0,300;0,600;1,300;1,600&display=swap"
     rel="stylesheet">
 
   <!-- App CSS -->
@@ -50,6 +49,9 @@
     integrity="sha512-SVDh1zH5N9ChofSlNAK43lcNS7lWze6DTVx1JCXH1Tmno+0/1jMpdbR8YDgDUfcUrPp1xyE53G42GFrcM0CMVg=="
     crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
+  <!-- Disable viewport zooming (prevent mobile devices from using the entire desktop layout) -->
+  <meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1.0' />
+
 </head>
 
 <body>
@@ -62,52 +64,40 @@
     </div>
   </nav>
 
-  <header>
-    <div>
-      <img src="/images/profile-hex.png">
-    </div>
-    <br>
-    <div id="name">
-      <h2>Your Name</h2>
-    </div>
-  </header>
-
-  <!-- Page-specific (main) content here -->
-  <main class="container">
-    <section class="new-tweet">
-      <div class="error" style="display: none">
-        <i class="fa-solid fa-triangle-exclamation"></i>
-        <span class="error-message"></span>
+  <div class="content">
+    <header>
+      <div>
+        <img src="/images/profile-hex.png">
       </div>
-      <label for="tweet-text"><span>What are you humming about?</span></label>
-      <form id="form">
-        <div><textarea name="text" id="tweet-text"></textarea>
-          <div class="button">
-            <button type="submit">Tweet</button>
-            <output name="counter" class="counter" for="tweet-text">140</output>
-          </div>
+      <br>
+      <div id="name">
+        <h2>Rosanna Zhang</h2>
+      </div>
+    </header>
+
+    <!-- Page-specific (main) content here -->
+    <main class="container">
+      <section class="new-tweet">
+        <div class="error" style="display: none">
+          <i class="fa-solid fa-triangle-exclamation"></i>
+          <span class="error-message"></span>
         </div>
-      </form>
+        <label for="tweet-text"><span>What are you humming about?</span></label>
+        <form id="form">
+          <div><textarea name="text" id="tweet-text"></textarea>
+            <div class="button">
+              <button type="submit">Tweet</button>
+              <output name="counter" class="counter" for="tweet-text">140</output>
+            </div>
+          </div>
+        </form>
+      </section>
 
-    </section>
+      <section class="all-tweets">
 
-    <section class="all-tweets">
-
-      <!-- <article class="tweet">
-        <div class=tweet-profile><img src="/images/profile-hex.png">Newton</img><span> @Sirlsaac</span></div>
-        <div class="tweet-text">If I have seen further it is by standing on the shoulders of giants</div>
-        <footer>
-          10 days ago
-          <span>
-            <i class="fa-sharp fa-solid fa-flag"></i>
-            <i class="fa-solid fa-heart"></i>
-            <i class="fa-solid fa-retweet"></i>
-          </span>
-        </footer>
-      </article> -->
-
-    </section>
-  </main>
+      </section>
+    </main>
+  </div>
 </body>
 
 </html>

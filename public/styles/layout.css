@@ -6,13 +6,12 @@
 html {
   box-sizing: border-box;
 }
-*, *:before, *:after {
+
+*,
+*:before,
+*:after {
   box-sizing: inherit;
 }
-
-/*
- * Global layout stuff
- */
 
 body {
   color: #545149;
@@ -20,10 +19,6 @@ body {
   font-size: 24px;
   font-family: "Source Sans Pro"
 }
-
-/*
- * Additional CSS can be defined below or in other CSS files, as per instructions
- */
 
 .container {
   display: flex;
@@ -34,4 +29,25 @@ body {
   flex-direction: column;
 }
 
+.content {
+  display: flex;
+  flex-direction: column;
+}
 
+@media only screen and (min-width: 1024px) {
+  .content {
+    flex-direction: row;
+    margin: 50px 50px 0px 50px;
+  }
+
+  header {
+    width: 30% !important;
+    margin: 50px 0px 0px 10px;
+  }
+
+  .container {
+    width: 50%;
+    margin-top: 120px
+  }
+
+}

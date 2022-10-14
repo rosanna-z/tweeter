@@ -12,8 +12,8 @@ $(document).ready(() => {
       });
   };
 
-  // loops through tweets
-  // calls createTweetElement for each tweet
+
+  // calls createTweetElement for each tweet and
   // takes return value and appends it to the tweets container
   const renderTweets = function(tweets) {
     for (const tweet of tweets) {
@@ -22,8 +22,10 @@ $(document).ready(() => {
     }
   };
 
+  // Creates a new tweet
   const createTweetElement = function(tweetObj) {
-    const escape = function (str) {
+    // Prevent cross-site scripting
+    const escape = function(str) {
       let div = document.createElement("div");
       div.appendChild(document.createTextNode(str));
       return div.innerHTML;
@@ -31,7 +33,7 @@ $(document).ready(() => {
 
     let $tweet = $(`
   <article class="tweet">
-  <div class=tweet-profile><img src="${tweetObj.user.avatars}">${tweetObj.user.name}</img><span>${tweetObj.user.handle}</span></div>
+  <div class=tweet-profile><img src="${tweetObj.user.avatars}"><div class=username>${tweetObj.user.name}</div></img><span>${tweetObj.user.handle}</span></div>
   <div class="tweet-text">${escape(tweetObj.content.text)}</div>
   <footer>
     ${timeago.format(tweetObj.created_at)}
@@ -54,20 +56,19 @@ $(document).ready(() => {
     $('.error').hide();
 
     // grabbing the text value
-    const $tweetText = ($('#tweet-text').val()).trim()
+    const $tweetText = ($('#tweet-text').val()).trim();
 
     // validate if text is empty/null or longer than 140 letters
     if (!$tweetText) {
-      $('.error-message').text('Error Message: You must input text in your tweet.')
-      $('.error').slideDown()
-      return 
+      $('.error-message').text('Error Message: You must input text in your tweet.');
+      $('.error').slideDown();
+      return;
     }
     if ($tweetText.length > 140) {
-      $('.error-message').text('Oops! Your tweet is too long!')
-      $('.error').slideDown()
-      return 
+      $('.error-message').text('Oops! Your tweet is too long!');
+      $('.error').slideDown();
+      return;
     }
-    
 
     // get + serialize the data from form
     const newTweet = $form.serialize();
@@ -78,12 +79,12 @@ $(document).ready(() => {
       url: '/tweets',
       data: newTweet
     })
-    .then(() => {
-      $('#tweet-text').val('');
-      $('.error').slideUp();
-      $('.counter').val('140');
-      $tweetsContainer.prepend(loadTweets());
-    })
+      .then(() => {
+        $('#tweet-text').val('');
+        $('.error').slideUp();
+        $('.counter').val('140');
+        $tweetsContainer.prepend(loadTweets());
+      });
   });
 
   loadTweets();

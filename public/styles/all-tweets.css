@@ -1,5 +1,5 @@
 .all-tweets {
-  padding: 10px;
+  padding-top: 30px;
 }
 
 .tweet {
@@ -24,6 +24,11 @@ article.tweet .tweet-profile {
   color: #b3b8c4;
   width: 100%;
   text-align: right;
+}
+
+div.username {
+  margin-left: 10px;
+  align-items: center;
 }
 
 .tweet-text {
