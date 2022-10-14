@@ -19,3 +19,11 @@ This repository is the starter code for the project: Students will fork and clon
 - Body-Parser
 - Chance
 - md5
+
+## Screenshots
+
+![Displays error message when tweet is too long](https://github.com/rosanna-z/tweeter/blob/master/docs/error-message.png?raw=true)
+
+![A full display of the Tweeter page with mouse hovering over the first tweet](https://github.com/rosanna-z/tweeter/blob/master/docs/home-page.png?raw=true)
+
+![Compatibility with smaller screen size](https://github.com/rosanna-z/tweeter/blob/master/docs/responsive-design.png?raw=true)
